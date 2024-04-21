@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Transient;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -18,8 +19,11 @@ public class Role implements GrantedAuthority {
     @Transient
     @ManyToMany(mappedBy = "roles")
     Set<Client> clients;
+
     @Override
-    public String getAuthority() {return getName();}
+    public String getAuthority() {
+        return getName();
+    }
 }
 
 /*

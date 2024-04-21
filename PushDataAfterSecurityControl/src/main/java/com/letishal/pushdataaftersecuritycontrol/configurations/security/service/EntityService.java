@@ -7,11 +7,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface EntityService<T> {
+public interface EntityService<T, IdType> {
     List<T> findAll();
+
     List<T> pushAll(List<T> entities);
+
     Optional<T> save(T entity);
-    Optional<T> findById(Long id);
+
+    Optional<T> findById(IdType id);
+
     Optional<T> update(T entity);
-    void remove(Long id);
+
+    void remove(IdType id);
 }
