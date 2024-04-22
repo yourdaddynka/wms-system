@@ -1,4 +1,4 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.model;
+package com.letishal.pushdataaftersecuritycontrol.security.model;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

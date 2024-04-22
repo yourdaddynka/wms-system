@@ -1,8 +1,8 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.service;
+package com.letishal.pushdataaftersecuritycontrol.security.service;
 
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.Client;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.ClientDetails;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.repository.ClientRepository;
+import com.letishal.pushdataaftersecuritycontrol.security.model.Client;
+import com.letishal.pushdataaftersecuritycontrol.security.model.ClientDetails;
+import com.letishal.pushdataaftersecuritycontrol.security.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

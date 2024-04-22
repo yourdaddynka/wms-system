@@ -1,6 +1,6 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.service.impl;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.repository.EntityRepository;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.service.EntityService;
+package com.letishal.pushdataaftersecuritycontrol.security.service.impl;
+import com.letishal.pushdataaftersecuritycontrol.security.repository.EntityRepository;
+import com.letishal.pushdataaftersecuritycontrol.security.service.EntityService;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

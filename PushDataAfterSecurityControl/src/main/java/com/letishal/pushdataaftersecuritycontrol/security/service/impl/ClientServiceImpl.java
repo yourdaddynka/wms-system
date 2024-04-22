@@ -1,8 +1,8 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.service.impl;
+package com.letishal.pushdataaftersecuritycontrol.security.service.impl;
 
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.Client;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.repository.ClientRepository;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.repository.EntityRepository;
+import com.letishal.pushdataaftersecuritycontrol.security.model.Client;
+import com.letishal.pushdataaftersecuritycontrol.security.repository.ClientRepository;
+import com.letishal.pushdataaftersecuritycontrol.security.repository.EntityRepository;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;

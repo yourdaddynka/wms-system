@@ -1,4 +1,4 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.model;
+package com.letishal.pushdataaftersecuritycontrol.security.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +12,10 @@ public class Role implements GrantedAuthority {
     Long id;
     String name;
     public Role() {}
+
+    public Role(String name) {
+        this.name = name;
+    }
 
     @Override
     public String getAuthority() {

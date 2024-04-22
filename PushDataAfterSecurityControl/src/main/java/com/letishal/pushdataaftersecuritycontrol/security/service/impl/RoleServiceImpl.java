@@ -1,6 +1,6 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.service.impl;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.Role;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.repository.EntityRepository;
+package com.letishal.pushdataaftersecuritycontrol.security.service.impl;
+import com.letishal.pushdataaftersecuritycontrol.security.model.Role;
+import com.letishal.pushdataaftersecuritycontrol.security.repository.EntityRepository;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;

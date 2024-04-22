@@ -1,6 +1,7 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.model;
+package com.letishal.pushdataaftersecuritycontrol.security.model;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -13,6 +14,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
+@AllArgsConstructor
 public class Client {
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -23,6 +25,6 @@ public class Client {
     String userNickName;
     @Size(min = 8, message = "не меньше 8 символов")
     String userPassword;
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
     Set<Role> roles;
 }

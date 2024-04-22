@@ -1,15 +1,11 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.controller;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.Client;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.Role;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.service.impl.ClientServiceImpl;
-import com.letishal.pushdataaftersecuritycontrol.configurations.security.service.impl.RoleServiceImpl;
+package com.letishal.pushdataaftersecuritycontrol.security.controller;
+import com.letishal.pushdataaftersecuritycontrol.security.model.Client;
+import com.letishal.pushdataaftersecuritycontrol.security.service.impl.ClientServiceImpl;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

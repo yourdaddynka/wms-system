@@ -1,4 +1,4 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.repository;
+package com.letishal.pushdataaftersecuritycontrol.security.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 

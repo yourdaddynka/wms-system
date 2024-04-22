@@ -1,4 +1,4 @@
-package com.letishal.pushdataaftersecuritycontrol.configurations.security.service;
+package com.letishal.pushdataaftersecuritycontrol.security.service;
 
 
 import org.springframework.stereotype.Service;
