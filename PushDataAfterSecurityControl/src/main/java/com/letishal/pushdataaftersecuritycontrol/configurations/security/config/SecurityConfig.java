@@ -25,25 +25,18 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         return new MyRolesDetailsService();
     }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("TEST", "api/v1/apps/welcome", "api/v1/new-user").permitAll()
-                        .requestMatchers("TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
-                        .requestMatchers("TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_POSTS")
-                        .requestMatchers("TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_ALBUMS")
-                        .requestMatchers("TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_ALBUMS", "ROLE_PHOTOS")
-                        .requestMatchers("TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_POSTS", "ROLE_COMMENTS")
-                        .requestMatchers(HttpMethod.GET, "TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_POSTS_VIEWER")
-                        .requestMatchers(HttpMethod.POST, String.valueOf(HttpMethod.PUT), "TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_POSTS_EDITOR")
-                        .requestMatchers("TEST").authenticated()
+                        .requestMatchers("/api/v1/save", "api/v1/find").permitAll()
+                        .requestMatchers(HttpMethod.GET, "TEST").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                        .requestMatchers(HttpMethod.POST, String.valueOf(HttpMethod.PUT), "TEST").hasAnyAuthority("ROLE_ADMIN")
+                        .requestMatchers("/api/v1/**").authenticated()
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .build();

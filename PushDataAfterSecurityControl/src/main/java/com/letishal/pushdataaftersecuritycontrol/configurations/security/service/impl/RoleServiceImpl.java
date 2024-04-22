@@ -1,6 +1,4 @@
 package com.letishal.pushdataaftersecuritycontrol.configurations.security.service.impl;
-
-
 import com.letishal.pushdataaftersecuritycontrol.configurations.security.model.Role;
 import com.letishal.pushdataaftersecuritycontrol.configurations.security.repository.EntityRepository;
 import lombok.AccessLevel;

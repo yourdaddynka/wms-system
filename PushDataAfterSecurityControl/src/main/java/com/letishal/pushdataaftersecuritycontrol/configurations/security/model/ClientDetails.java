@@ -25,32 +25,15 @@ public class ClientDetails implements UserDetails {
     }
 
     @Override
-    public String getPassword() {
-        return client.getUserPassword();
-    }
-
+    public String getPassword() {return client.getUserPassword();}
     @Override
-    public String getUsername() {
-        return client.getUserNickName();
-    }
-
+    public String getUsername() {return client.getUserNickName();}
     @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
+    public boolean isAccountNonExpired() {return true;}
     @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
+    public boolean isAccountNonLocked() {return true;}
     @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
+    public boolean isCredentialsNonExpired() {return true;}
     @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    public boolean isEnabled() {return true;}
 }

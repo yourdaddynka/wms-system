@@ -1,16 +1,12 @@
 package com.letishal.pushdataaftersecuritycontrol.configurations.security.model;
-
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
 import javax.validation.constraints.Size;
 import java.util.Set;
-
 import static jakarta.persistence.GenerationType.IDENTITY;
-
 
 @Table
 @Entity
@@ -27,10 +23,6 @@ public class Client {
     String userNickName;
     @Size(min = 8, message = "не меньше 8 символов")
     String userPassword;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     Set<Role> roles;
 }
-/*
-Для использования в Security необходимо, чтобы он implements UserDetails(для метода getAuthorities).
-FetchType.EAGER - «жадная» загрузка, т.е. список ролей загружается вместе с пользователем сразу (не ждет пока к нему обратятся)
-*/

@@ -10,13 +10,11 @@ import java.util.Optional;
 public interface EntityService<T, IdType> {
     List<T> findAll();
 
-    List<T> pushAll(List<T> entities);
-
     Optional<T> save(T entity);
 
     Optional<T> findById(IdType id);
 
-    Optional<T> update(T entity);
-
-    void remove(IdType id);
+//    Optional<T> update(T entity);
+//    List<T> pushAll(List<T> entities);
+//    void remove(IdType id);
 }
