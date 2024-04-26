@@ -11,5 +11,6 @@ public class KafkaConsumer {
 
     @KafkaListener(topics = "dbProduct",groupId = "my_consumer")
     public void test(Object message ){System.out.println("получено сообщение: " + message);}
+
 //    ConsumerRecord
 }

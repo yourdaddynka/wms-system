@@ -19,7 +19,6 @@ public class Client {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     Long id;
-    String role;
     @Column(unique = true, nullable = false)
     @Size(min = 4, max = 20, message = "Диапазон символов от 4 до 20")
     String userNickName;

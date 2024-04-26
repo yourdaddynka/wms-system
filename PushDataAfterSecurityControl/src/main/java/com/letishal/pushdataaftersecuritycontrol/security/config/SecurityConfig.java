@@ -1,14 +1,9 @@
 package com.letishal.pushdataaftersecuritycontrol.security.config;
-
 import com.letishal.pushdataaftersecuritycontrol.security.model.Client;
 import com.letishal.pushdataaftersecuritycontrol.security.model.Role;
 import com.letishal.pushdataaftersecuritycontrol.security.repository.ClientRepository;
 import com.letishal.pushdataaftersecuritycontrol.security.repository.RoleRepository;
 import com.letishal.pushdataaftersecuritycontrol.security.service.MyRolesDetailsService;
-
-import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -71,7 +66,7 @@ public class SecurityConfig {
     @Bean
     public ApplicationRunner applicationRunner(ClientRepository clientRepository, RoleRepository roleRepository, Environment env) {
         return args -> {
-            String adminNickName = env.getProperty("admin.login");
+            String adminNickName = env.getProperty("admin.username");
             String adminPassword = env.getProperty("admin.password");
             Set<Role> roles = new HashSet<>();
             String[] rolesArray = env.getProperty("admin.roles", "ROLE_USER").split(",");

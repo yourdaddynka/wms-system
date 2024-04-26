@@ -14,6 +14,8 @@ import java.util.Optional;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ClientServiceImpl extends EntityServiceImpl<Client, Long> {
     EntityRepository<Client, Long> clientRepository;
+
+    @Autowired
     PasswordEncoder bCryptPasswordEncoder;
     @Autowired
     public ClientServiceImpl(EntityRepository<Client, Long> clientRepository, PasswordEncoder bCryptPasswordEncoder) {
@@ -22,7 +24,13 @@ public class ClientServiceImpl extends EntityServiceImpl<Client, Long> {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
     @Override
-    public Optional<Client> findById(Long id) {return super.findById(id).filter(e -> !e.getRole().equals("ADMIN"));}
+    public Optional<Client> findById(Long id) {
+        return super.findById(id)
+                .filter(e -> e.getRoles()
+                        .stream()
+                        .anyMatch(ex -> ex.getName().equals("ROLE_ADMIN"))
+                );
+    }
     @Override
     public Optional<Client> save(Client entity) {
         Optional<Client> client = ((ClientRepository) clientRepository).findByUserNickName(entity.getUserNickName());

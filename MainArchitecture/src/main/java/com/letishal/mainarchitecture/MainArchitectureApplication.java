@@ -1,10 +1,13 @@
-package com.letishal.pushdataaftersecuritycontrol;
+package com.letishal.mainarchitecture;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PushDataAfterSecurityControlApplication {
+public class MainArchitectureApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(PushDataAfterSecurityControlApplication.class, args);
+        SpringApplication.run(MainArchitectureApplication.class, args);
     }
+
 }
