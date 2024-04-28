@@ -1,12 +1,15 @@
-package com.letisal.WMSystem.controller;
+package com.letishal.messagebrockerfromkafka.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class AbstractDocument implements Serializable {
+@Data
+public abstract class AbstractDto implements Serializable {
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
 
@@ -17,5 +20,4 @@ public class AbstractDocument implements Serializable {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     LocalDateTime updated;
-
 }
