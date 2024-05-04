@@ -2,6 +2,7 @@ package com.letishal.messagebrockerfromkafka.producer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.letishal.messagebrockerfromkafka.models.Document;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.LongDeserializer;
 import org.apache.kafka.common.serialization.LongSerializer;
@@ -13,12 +14,15 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.config.KafkaListenerContainerFactory;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
 
 
@@ -39,14 +43,14 @@ public class ApplicationConsumerConfig {
         Map<String, Object> props = kafkaProperties.buildConsumerProperties(null);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,3);//количество значений которое прочитаем при обращении к кафке
-        props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG,3_000);//максимальный временной интервал между обращениями
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,3);    //количество значений которое прочитаем при обращении к кафке
+        props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG,3_000);    //максимальный временной интервал между обращениями
         return props;
     }
 
     @Bean
     public ConsumerFactory<Long, Document> consumerFactory() {
-        var kafkaConsumer = new DefaultKafkaConsumerFactory<Long,Document>(consumerConfig());
+        DefaultKafkaConsumerFactory<Long, Document> kafkaConsumer = new DefaultKafkaConsumerFactory<>(consumerConfig());
         kafkaConsumer.setValueDeserializer(new JsonDeserializer<>(objectMapper));
         return kafkaConsumer;
     }
@@ -67,9 +71,29 @@ public class ApplicationConsumerConfig {
     }
 
 
-    @Bean
-    public StringValueConsumer
 
-    }
-
+//    @Bean
+//    public StringValueConsumer stringValueConsumerLogger() {
+//        return new StringValueConsumerLogger();
+//    }
+//    @Bean
+//    public KafkaClient stringValueConsumer(StringValueConsumer stringValueConsumer) {
+//        return new KafkaClient(stringValueConsumer);
+//    }
+//
+//    public static class KafkaClient {
+//        private final StringValueConsumer stringValueConsumer;
+//
+//        public KafkaClient(StringValueConsumer stringValueConsumer) {
+//            this.stringValueConsumer = stringValueConsumer;
+//        }
+//
+//        @KafkaListener(
+//                topics = "${application.kafka.topic}",
+//                containerFactory = "listenerContainerFactory")
+//        public void listen(@Payload List<StringValue> values) {
+//            log.info("values, values.size:{}", values.size());
+//            stringValueConsumer.accept(values);
+//        }
+//    }
 }
